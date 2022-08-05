@@ -1,4 +1,4 @@
-# wallpaper_hub
+# Pics_hub
 
 This is a wallpaper initial built to display images with pexels api but now has been updated to enable users to create account, sign out and also sign in back. in Future update the developer will be adding Google sign in Integration account settings, dark mode toggle etc....
 
