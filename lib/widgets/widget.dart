@@ -91,12 +91,12 @@ Widget wallpapersWidget() {
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
     Key? key,
-    required this.onPressed,
+    required this.onTap,
     required this.text,
     required this.icon,
   }) : super(key: key);
 
-  final Function() onPressed;
+  final Function() onTap;
   final String text;
   final Icon icon;
 
@@ -105,7 +105,7 @@ class ButtonWidget extends StatelessWidget {
     return ElevatedButton.icon(
       icon: icon,
       label: Text(text),
-      onPressed: onPressed,
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.all(20.0),
         fixedSize: Size(250, 65),

@@ -5,15 +5,15 @@ import 'package:wallpaper_hub/category_tile/category_tile.dart';
 import 'package:wallpaper_hub/data/data.dart';
 import 'package:wallpaper_hub/models/categories_model.dart';
 import 'package:wallpaper_hub/models/wallpaper_hub_model.dart';
-import 'package:wallpaper_hub/utils/utils.dart';
 import 'package:wallpaper_hub/views/search.dart';
 import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:wallpaper_hub/views/wrapper/auth_page.dart';
 
 import 'package:wallpaper_hub/widgets/widget.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key, required String email}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -28,7 +28,6 @@ class _HomePageState extends State<HomePage> {
   //https://api.pexels.com/v1/curated?page=2&per_page=40
 
   TextEditingController searchController = TextEditingController();
-  final user = FirebaseAuth.instance.currentUser!;
 
   getTrendingWallpapers() async {
     var response =
@@ -67,7 +66,7 @@ class _HomePageState extends State<HomePage> {
             Icons.logout_outlined,
             color: Colors.blue,
           ),
-          onPressed: () => FirebaseAuth.instance.signOut(),
+          onPressed: () => AuthController.instance.logOut(),
         ),
         actions: [
           IconButton(
@@ -118,7 +117,6 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-
               const SizedBox(
                 height: 10.0,
               ),
@@ -136,11 +134,9 @@ class _HomePageState extends State<HomePage> {
                       );
                     }),
               ),
-              
               const SizedBox(
                 height: 5.0,
               ),
-
               wallpaperHubList(wallpapers: wallpapers, context: context)
             ],
           ),
@@ -149,4 +145,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
