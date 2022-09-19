@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wallpaper_hub/views/auth/login.dart';
-import 'package:wallpaper_hub/views/auth/signUp.dart';
 import 'package:wallpaper_hub/views/homepage/homepage.dart';
 
 class AuthController extends GetxController {
@@ -69,7 +68,7 @@ class AuthController extends GetxController {
             ),
           ),
           messageText: Text(
-            e.toString(),
+            "Check Your Connection or email and password again!",
             style: const TextStyle(
               color: Colors.white,
             ),

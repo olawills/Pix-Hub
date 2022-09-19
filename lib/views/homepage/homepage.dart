@@ -7,7 +7,6 @@ import 'package:wallpaper_hub/models/categories_model.dart';
 import 'package:wallpaper_hub/models/wallpaper_hub_model.dart';
 import 'package:wallpaper_hub/views/search.dart';
 import 'dart:convert';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wallpaper_hub/views/wrapper/auth_page.dart';
 
 import 'package:wallpaper_hub/widgets/widget.dart';
@@ -36,7 +35,6 @@ class _HomePageState extends State<HomePage> {
 
     Map<String, dynamic> jsonData = jsonDecode(jsonName);
     jsonData["photos"].forEach((element) {
-      //print(element);
       WallpaperHubModel wallpaperHubModel = WallpaperHubModel();
       wallpaperHubModel = WallpaperHubModel.fromMap(element);
       wallpapers.add(wallpaperHubModel);
@@ -118,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 20.0,
               ),
               Container(
                 height: 80.0,
@@ -135,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                     }),
               ),
               const SizedBox(
-                height: 5.0,
+                height: 10.0,
               ),
               wallpaperHubList(wallpapers: wallpapers, context: context)
             ],

@@ -65,6 +65,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   labelText: 'Enter a valid Email',
+                  prefixIcon: Icon(Icons.email),
                 ),
               ),
               const SizedBox(height: 4),
@@ -75,6 +76,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(
                   labelText: 'Enter your password',
+                  prefixIcon: Icon(Icons.password),
                 ),
               ),
               const SizedBox(height: 20),
@@ -83,7 +85,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     emailController.text.trim(),
                     passwordController.text.trim()),
                 text: 'Sign Up',
-                icon: Icon(Icons.arrow_forward, size: 32),
+                icon: Icon(Icons.arrow_forward, size: 30),
               ),
               const SizedBox(height: 20),
               RichText(

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-
 class ImageViewer extends StatefulWidget {
   const ImageViewer({Key? key, required this.imgUrl}) : super(key: key);
   final String imgUrl;
@@ -16,7 +15,6 @@ class ImageViewer extends StatefulWidget {
 }
 
 class _ImageViewerState extends State<ImageViewer> {
-  
   var filePath;
   @override
   Widget build(BuildContext context) {
@@ -48,7 +46,7 @@ class _ImageViewerState extends State<ImageViewer> {
                 child: Stack(
                   children: [
                     Container(
-                      height: 50,
+                      height: 60,
                       decoration: BoxDecoration(
                         color: const Color(0xff1c1b1b).withOpacity(0.8),
                         borderRadius: BorderRadius.circular(30),
@@ -56,7 +54,7 @@ class _ImageViewerState extends State<ImageViewer> {
                       width: MediaQuery.of(context).size.width / 2,
                     ),
                     Container(
-                      height: 50,
+                      height: 60,
                       width: MediaQuery.of(context).size.width / 2,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 8),
@@ -77,10 +75,11 @@ class _ImageViewerState extends State<ImageViewer> {
                             style:
                                 TextStyle(fontSize: 16, color: Colors.white70),
                           ),
+                          const SizedBox(width: 5),
                           Text(
                             'Image will be saved in gallery',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 13,
                               color: Colors.white70,
                             ),
                           ),
@@ -109,10 +108,6 @@ class _ImageViewerState extends State<ImageViewer> {
   }
 
   _save() async {
-    // if (Platform.isAndroid) {
-
-    // }
-    //await _askPermission();
     await _requestMultiplePermissions();
 
     var response = await Dio()
@@ -123,16 +118,6 @@ class _ImageViewerState extends State<ImageViewer> {
     Navigator.pop(context);
   }
 
-  // _askPermission() async {
-  //   if (Platform.isIOS) {
-  //     /*Map<PermissionGroup, PermissionStatus> permissions =
-  //         */await PermissionHandler()
-  //             .requestPermissions([PermissionGroup.photos]);
-  //   } else {
-  //     /*PermissionStatus permission = */await PermissionHandler()
-  //         .checkPermissionStatus(PermissionGroup.storage);
-  //   }
-  // }
   _requestMultiplePermissions() async {
     if (Platform.isIOS) {
       Map<Permission, PermissionStatus> statuses = await [
@@ -147,11 +132,5 @@ class _ImageViewerState extends State<ImageViewer> {
       print(/*"location permission: ${statuses[Permission.photos]}, "*/
           "storage permission: ${statuses[Permission.storage]}");
     }
-    // Map<Permission, PermissionStatus> statuses = await [
-    //   Permission.photos,
-    //   Permission.storage,
-    // ].request();
-    // print("location permission: ${statuses[Permission.photos]}, "
-    //     "storage permission: ${statuses[Permission.storage]}");
   }
 }

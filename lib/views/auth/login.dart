@@ -74,6 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(
                   labelText: 'Enter your password',
+                  prefixIcon: Icon(Icons.password),
                 ),
                 obscureText: true,
               ),
@@ -83,22 +84,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     emailController.text.trim(),
                     passwordController.text.trim()),
                 text: 'Login',
-                icon: Icon(Icons.arrow_forward, size: 32),
+                icon: Icon(Icons.arrow_forward, size: 30),
               ),
               const SizedBox(height: 24),
-              // GestureDetector(
-              //   onTap: () => ForgotPasswordPage(),
-              //   child: Text(
-              //     'Forgot Password? ',
-              //     style: TextStyle(
-              //       decoration: TextDecoration.underline,
-              //       color: Colors.blue,
-              //       //Theme.of(context).colorScheme.secondary,
-              //       fontSize: 20,
-              //     ),
-              //   ),
-              // ),
-              const SizedBox(height: 10),
+              // const SizedBox(height: 10),
               RichText(
                 text: TextSpan(
                   style: TextStyle(
